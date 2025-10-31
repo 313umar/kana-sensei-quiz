@@ -9,6 +9,8 @@ import Results from "./pages/Results";
 import AdminAuth from "./pages/AdminAuth";
 import AdminDashboard from "./pages/AdminDashboard";
 import Leaderboard from "./pages/Leaderboard";
+import PronunciationPractice from "./pages/PronunciationPractice";
+import ConversationPractice from "./pages/ConversationPractice";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +26,8 @@ const App = () => (
           <Route path="/quiz/:category" element={<Quiz />} />
           <Route path="/results/:shareId" element={<Results />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/pronunciation" element={<PronunciationPractice />} />
+          <Route path="/conversation" element={<ConversationPractice />} />
           <Route path="/admin" element={<AdminAuth />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

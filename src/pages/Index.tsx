@@ -1,5 +1,9 @@
 import { QuizCard } from "@/components/QuizCard";
 import { Navbar } from "@/components/Navbar";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Mic, MessageCircle, Volume2, Settings } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-cherry-blossom.jpg";
 
 const Index = () => {
@@ -41,6 +45,45 @@ const Index = () => {
                 <span>Share Results</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Voice Practice Section */}
+      <section className="py-16 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-foreground">
+            Voice Practice Features
+          </h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Practice speaking Japanese with AI-powered voice features
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="text-5xl mb-4">
+                <Mic className="w-16 h-16 mx-auto text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold mb-2 text-center">Pronunciation Practice</h3>
+              <p className="text-muted-foreground mb-6 text-center">
+                Listen to Japanese phrases and practice your pronunciation with speech recognition
+              </p>
+              <Link to="/pronunciation">
+                <Button className="w-full">Start Practicing</Button>
+              </Link>
+            </Card>
+
+            <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="text-5xl mb-4">
+                <MessageCircle className="w-16 h-16 mx-auto text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold mb-2 text-center">AI Conversation</h3>
+              <p className="text-muted-foreground mb-6 text-center">
+                Chat with AI teacher in Japanese using voice or text for real conversation practice
+              </p>
+              <Link to="/conversation">
+                <Button className="w-full">Start Conversation</Button>
+              </Link>
+            </Card>
           </div>
         </div>
       </section>

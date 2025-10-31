@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Navbar } from "@/components/Navbar";
 import { Progress } from "@/components/ui/progress";
-import { Loader2 } from "lucide-react";
+import { Loader2, Volume2 } from "lucide-react";
 import { toast } from "sonner";
+import { useSpeechSynthesis } from "@/hooks/useSpeechSynthesis";
 
 interface Question {
   id: string;
@@ -21,6 +22,7 @@ interface Question {
 const Quiz = () => {
   const { category } = useParams();
   const navigate = useNavigate();
+  const { speak, speaking } = useSpeechSynthesis();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -181,9 +183,20 @@ const Quiz = () => {
           </div>
 
           <Card className="p-8 animate-fade-in">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-              {currentQuestion.question}
-            </h2>
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-center">
+                {currentQuestion.question}
+              </h2>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => speak(currentQuestion.question)}
+                disabled={speaking}
+                className="shrink-0"
+              >
+                <Volume2 className={`w-6 h-6 ${speaking ? 'animate-pulse' : ''}`} />
+              </Button>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {["A", "B", "C", "D"].map((option) => {
