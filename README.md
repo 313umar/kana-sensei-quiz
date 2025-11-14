@@ -1,6 +1,6 @@
 # Nihonify — Kana Sensei Quiz
 A modern Japanese learning app with interactive kana quizzes and AI pronunciation practice.
-
+Visit- https://313umar.github.io/kana-sensei-quiz/
 ## Tech Stack
 Vite + React + TypeScript + Tailwind + shadcn-ui
 
